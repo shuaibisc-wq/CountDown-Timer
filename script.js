@@ -1,5 +1,35 @@
 const targetDate = new Date("June 9, 2026 00:00:00").getTime();
 
+// 1. Create the Starry Sky
+const createStars = () => {
+    const container = document.getElementById('stars-container');
+    const starCount = 150;
+
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random position
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        // Random size
+        const size = Math.random() * 3;
+        
+        // Random animation duration for unique blinking
+        const duration = Math.random() * 3 + 2;
+
+        star.style.left = `${x}vw`;
+        star.style.top = `${y}vh`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.setProperty('--duration', `${duration}s`);
+        
+        container.appendChild(star);
+    }
+};
+
+// 2. Countdown Logic
 const updateCountdown = () => {
     const now = new Date().getTime();
     const distance = targetDate - now;
@@ -16,26 +46,10 @@ const updateCountdown = () => {
 
     if (distance < 0) {
         clearInterval(interval);
-        document.querySelector(".countdown-container").innerHTML = "<h1 class='title'>It's your day! 💖</h1>";
+        document.querySelector(".countdown-container").innerHTML = "<h1 class='title'>Happy Birthday! 🌙</h1>";
     }
 };
 
-const createHeart = () => {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    // Randomly pick between two heart styles
-    heart.innerHTML = Math.random() > 0.5 ? '❤' : '💗'; 
-    
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 2 + 6 + "s"; // Slower for mobile elegance
-    heart.style.fontSize = Math.random() * 10 + 12 + "px"; 
-    
-    document.body.appendChild(heart);
-    
-    setTimeout(() => { heart.remove(); }, 8000);
-};
-
 const interval = setInterval(updateCountdown, 1000);
-// Generate a heart every 800ms to avoid overwhelming mobile CPUs
-setInterval(createHeart, 800); 
+createStars();
 updateCountdown();
