@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@400;700&display=swap');
 
 * {
     margin: 0;
@@ -14,24 +14,24 @@ body {
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
-    /* Deep Midnight Sky */
+    /* গভীর রাতের আকাশ */
     background: radial-gradient(circle at 20% 20%, #1b2735 0%, #090a0f 100%);
 }
 
-/* The Full Moon */
+/* জ্বলজ্বলে পূর্ণ চাঁদ */
 .moon {
     position: absolute;
     top: 10%;
     left: 15%;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: #fefcd7;
     border-radius: 50%;
-    box-shadow: 0 0 40px 10px rgba(254, 252, 215, 0.4);
+    box-shadow: 0 0 40px 10px rgba(254, 252, 215, 0.3);
     z-index: 1;
 }
 
-/* Star Styles */
+/* নক্ষত্র (Stars) */
 .star {
     position: absolute;
     background: white;
@@ -41,66 +41,76 @@ body {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
     50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* Timer Container */
+/* মেইন কন্টেইনার */
 .countdown-container {
     position: relative;
     z-index: 10;
     text-align: center;
-    background: rgba(255, 255, 255, 0.05); /* Very subtle glass */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    padding: 60px 40px;
+    border-radius: 25px;
+    padding: 50px 30px;
 }
 
 .title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: #fefcd7;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-style: italic;
-    text-shadow: 0 0 10px rgba(254, 252, 215, 0.3);
+    letter-spacing: 1px;
 }
 
+/* হরাইজন্টাল টাইমার */
 #countdown {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     justify-content: center;
 }
 
 .time-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
     border-radius: 15px;
-    min-width: 100px;
+    min-width: 90px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 span {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #fff;
+    color: #ffffff;
     display: block;
+    line-height: 1;
 }
 
 p {
-    font-size: 0.7rem;
-    color: #aaa;
+    font-size: 0.65rem;
+    color: #cccccc;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
-/* Mobile adjustments to keep horizontal */
+.footer-text {
+    margin-top: 25px;
+    color: #fefcd7;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+/* মোবাইল রেসপন্সিভনেস */
 @media (max-width: 600px) {
-    .countdown-container { width: 95%; padding: 30px 10px; }
-    .title { font-size: 1.8rem; }
+    .title { font-size: 1.6rem; }
     #countdown { gap: 8px; }
-    .time-box { min-width: 70px; padding: 15px 5px; }
+    .time-box { min-width: 70px; padding: 12px 5px; }
     span { font-size: 1.8rem; }
+    .moon { width: 50px; height: 50px; top: 5%; left: 10%; }
 }
