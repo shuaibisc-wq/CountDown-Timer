@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Removes blue flash on mobile tap */
 }
 
 body {
@@ -15,93 +14,93 @@ body {
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
-    
-    /* Optimized Mobile Gradient */
-    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 50%, #ffd1ff 100%);
-    background-size: 300% 300%;
-    animation: gradientBG 12s ease-in-out infinite;
+    /* Deep Midnight Sky */
+    background: radial-gradient(circle at 20% 20%, #1b2735 0%, #090a0f 100%);
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* The Full Moon */
+.moon {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 100px;
+    height: 100px;
+    background: #fefcd7;
+    border-radius: 50%;
+    box-shadow: 0 0 40px 10px rgba(254, 252, 215, 0.4);
+    z-index: 1;
 }
 
+/* Star Styles */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: blink var(--duration) infinite ease-in-out;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Timer Container */
 .countdown-container {
     position: relative;
     z-index: 10;
     text-align: center;
-    width: 85%; /* Fits perfectly on narrow screens */
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 35px;
-    padding: 40px 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.05); /* Very subtle glass */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 60px 40px;
 }
 
 .title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
+    color: #fefcd7;
+    margin-bottom: 40px;
     font-style: italic;
-    color: #4a4e69;
-    margin-bottom: 30px;
-    line-height: 1.2;
+    text-shadow: 0 0 10px rgba(254, 252, 215, 0.3);
 }
 
 #countdown {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2x2 grid looks better on mobile */
-    gap: 15px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
 .time-box {
-    background: rgba(255, 255, 255, 0.5);
-    padding: 20px 10px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 span {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    color: #4a4e69;
+    color: #fff;
     display: block;
 }
 
 p {
     font-size: 0.7rem;
-    color: #9a8c98;
+    color: #aaa;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 5px;
 }
 
-.footer-text {
-    margin-top: 30px;
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: #4a4e69;
-    letter-spacing: 1px;
-    opacity: 0.7;
-}
-
-/* Mobile Floating Hearts */
-.heart {
-    position: absolute;
-    bottom: -10%;
-    color: rgba(255, 182, 193, 0.4);
-    user-select: none;
-    animation: floatUp linear infinite;
-    pointer-events: none;
-    z-index: 1;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    20% { opacity: 0.8; }
-    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+/* Mobile adjustments to keep horizontal */
+@media (max-width: 600px) {
+    .countdown-container { width: 95%; padding: 30px 10px; }
+    .title { font-size: 1.8rem; }
+    #countdown { gap: 8px; }
+    .time-box { min-width: 70px; padding: 15px 5px; }
+    span { font-size: 1.8rem; }
 }
