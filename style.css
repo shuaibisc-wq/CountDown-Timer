@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    /* Soft Romantic Gradient */
+    background: radial-gradient(circle at center, #FFEBCD 0%, #E0BFB8 40%, #FFC1CC 100%);
+    background-size: 200% 200%;
+    animation: gradientAnimation 20s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.countdown-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #6A0572;
+    margin-bottom: 20px;
+}
+
+#countdown {
+    display: flex;
+    gap: 15px;
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 12px;
+    min-width: 80px;
+}
+
+span {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #6A0572;
+    display: block;
+}
+
+p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #FF6F61;
+}
