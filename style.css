@@ -1,62 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap');
+/* Importing stylish but readable fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Montserrat:wght@300;500;700&display=swap');
 
-body, html {
-    height: 100%;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
     /* Soft Romantic Gradient */
-    background: radial-gradient(circle at center, #FFEBCD 0%, #E0BFB8 40%, #FFC1CC 100%);
-    background-size: 200% 200%;
-    animation: gradientAnimation 20s ease infinite;
+    background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #fad0c4, #ffd1ff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 }
 
-@keyframes gradientAnimation {
+@keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
 .countdown-container {
+    position: relative;
+    z-index: 10;
     text-align: center;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 40px;
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    padding: 60px 50px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3.5rem;
-    color: #6A0572;
-    margin-bottom: 20px;
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-style: italic;
+    color: #4a4e69;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
 }
 
 #countdown {
     display: flex;
-    gap: 15px;
+    gap: 25px;
+    justify-content: center;
 }
 
 .time-box {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 15px;
-    border-radius: 12px;
-    min-width: 80px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 25px 20px;
+    border-radius: 25px;
+    min-width: 110px;
+    transition: transform 0.3s ease;
+}
+
+.time-box:hover {
+    transform: translateY(-5px);
 }
 
 span {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #6A0572;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #4a4e69;
     display: block;
+    line-height: 1;
 }
 
 p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #FF6F61;
+    font-size: 0.8rem;
+    color: #9a8c98;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.footer-text {
+    margin-top: 35px;
+    font-weight: 300;
+    color: #4a4e69;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* Floating Hearts Style */
+.heart {
+    position: absolute;
+    bottom: -10%;
+    color: rgba(255, 182, 193, 0.5);
+    font-size: 20px;
+    user-select: none;
+    animation: floatUp linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 650px) {
+    .countdown-container { width: 90%; padding: 40px 20px; }
+    .title { font-size: 2rem; }
+    #countdown { gap: 10px; }
+    .time-box { min-width: 80px; padding: 15px 10px; }
+    span { font-size: 2.2rem; }
 }
